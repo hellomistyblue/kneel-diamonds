@@ -1,10 +1,11 @@
-const handleStyleOptionChange = (changeEvent) => {
-    if (changeEvent.target.StyleOptions === "Styles") {
+import { setStyleChoice } from "./transientState.js" 
 
+const handleStyleOptionChange = (changeEvent) => {
+    if (changeEvent.target.name === "style") {
+        const convertedToNumber = parseInt(changeEvent.target.value)
+        setStyleChoice(convertedToNumber) 
     }
 }
-
-
 
 
 export const StyleOptions = async () => {

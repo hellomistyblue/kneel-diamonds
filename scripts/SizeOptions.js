@@ -1,10 +1,11 @@
-const handleSizeOptionChange = (changeEvent) => {
-    if (changeEvent.target.SizeOptions === "Sizes") {
+import { setSizeChoice } from "./transientState.js"
 
+const handleSizeOptionChange = (changeEvent) => {
+    if (changeEvent.target.name === "carets") {
+        const convertedToNumber = parseInt(changeEvent.target.value)
+        setSizeChoice(convertedToNumber) 
     }
 }
-
-
 
 
 export const SizeOptions = async () => {
@@ -23,7 +24,7 @@ export const SizeOptions = async () => {
         }
     )
         html += divStringArray.join("")
-        
+
         html += `
         </div>
         `
