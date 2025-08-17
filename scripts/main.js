@@ -1,10 +1,14 @@
 import { MetalOptions } from './MetalOptions.js'
+import { SizeOptions } from './SizeOptions.js'
+import { StyleOptions } from './StyleOptions.js'
 
 //get a reference to the container element in our HTML
 const container = document.querySelector("#container")
 
 const render = async () => {
     const metalOptionsHTML = await MetalOptions()
+    const sizeOptionsHTML = await SizeOptions()
+    const styleOptionsHTML = await StyleOptions()
 
 
     const composedHTML = `
@@ -17,11 +21,13 @@ const render = async () => {
 
             <section class="choices__sizes options">
                 <h2>Sizes</h2>
+                ${sizeOptionsHTML}
             
             </section>
 
             <section class="choices__styles options">
                 <h2>Styles</h2>
+                ${styleOptionsHTML}
                 
             </section>
         </article>

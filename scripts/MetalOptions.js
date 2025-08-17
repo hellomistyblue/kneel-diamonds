@@ -14,13 +14,17 @@ export const MetalOptions = async () => {
     
     let html = `
         <div class="metalOptions-input">
-        <h2>Metals</h2>
-    `
-    for (const metalsObject of metals) {
-        html += `<input type="radio" name="metal"
-        value="${metalsObject.id}" /> ${metalsObject.metal}`
-    }
-        html += `
+        `
+    const divStringArray = metals.map(
+        (metals) => {
+            return `<div>
+            <input type="radio" name="metal" value="${metals.id}" /> ${metals.metal}
+            </div>`
+        }
+    )    
+    html += divStringArray.join("")
+
+    html += `
         </div>
         `
     return html
