@@ -1,9 +1,9 @@
-import { setMetalChoice } from "./transientState.js"   
+import { setMetalId } from "./transientState.js"   
 
 const handleMetalOptionChange = (changeEvent) => {
     if (changeEvent.target.name === "metal") {
         const convertedToNumber = parseInt(changeEvent.target.value)
-        setMetalChoice(convertedToNumber) 
+        setMetalId(convertedToNumber) 
     }
 }
 

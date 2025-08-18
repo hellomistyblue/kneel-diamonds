@@ -1,9 +1,9 @@
-import { setSizeChoice } from "./transientState.js"
+import { setSizeId } from "./transientState.js"
 
 const handleSizeOptionChange = (changeEvent) => {
     if (changeEvent.target.name === "carets") {
         const convertedToNumber = parseInt(changeEvent.target.value)
-        setSizeChoice(convertedToNumber) 
+        setSizeId(convertedToNumber) 
     }
 }
 

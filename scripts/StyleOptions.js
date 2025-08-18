@@ -1,9 +1,9 @@
-import { setStyleChoice } from "./transientState.js" 
+import { setStyleId } from "./transientState.js" 
 
 const handleStyleOptionChange = (changeEvent) => {
     if (changeEvent.target.name === "style") {
         const convertedToNumber = parseInt(changeEvent.target.value)
-        setStyleChoice(convertedToNumber) 
+        setStyleId(convertedToNumber) 
     }
 }
 

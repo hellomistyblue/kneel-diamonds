@@ -1,6 +1,8 @@
 import { MetalOptions } from './MetalOptions.js'
 import { SizeOptions } from './SizeOptions.js'
 import { StyleOptions } from './StyleOptions.js'
+import { OrderButton } from './OrderButton.js'
+import { Orders } from './OrderList.js'
 
 //get a reference to the container element in our HTML
 const container = document.querySelector("#container")
@@ -9,6 +11,8 @@ const render = async () => {
     const metalOptionsHTML = await MetalOptions()
     const sizeOptionsHTML = await SizeOptions()
     const styleOptionsHTML = await StyleOptions()
+    const orderButtonHTML = OrderButton()
+    const ordersHTML = await Orders()
 
 
     const composedHTML = `
@@ -33,12 +37,12 @@ const render = async () => {
         </article>
 
         <article class="order">
-
+            ${orderButtonHTML}
         </article>
 
         <article class="customOrders">
             <h2>Custom Jewelry Orders</h2>
-
+            ${ordersHTML}
         </article>
     `
 
@@ -46,6 +50,6 @@ const render = async () => {
 }
 
 // Add an event listener for our custom event
-document.addEventListener("newSubmissionCreated", render)
+document.addEventListener("newOrderCreated", render)
 
 render()

@@ -1,24 +1,24 @@
 // Set up the transient state data structure and provide initial values
 const transientState = {
-    metalChoice: 0,
-    sizeChoice: 0,
-    styleChoice: 0
+    metalId: 0,
+    sizeId: 0,
+    styleId: 0
 }
 
 // Functions to modify each property of transient state
-export const setMetalChoice = (chosenMetal) => {
-    transientState.metalChoice = chosenMetal
+export const setMetalId = (chosenMetal) => {
+    transientState.metalId = chosenMetal
 }
-export const setSizeChoice = (chosenSize) => {
-    transientState.sizeChoice = chosenSize
+export const setSizeId = (chosenSize) => {
+    transientState.sizeId = chosenSize
 }
-export const setStyleChoice = (chosenStyle) => {
-    transientState.styleChoice = chosenStyle
+export const setStyleId = (chosenStyle) => {
+    transientState.styleId = chosenStyle
 }
 
 // Function to convert transient state to permanent state
-export const saveSurveySubmission = async () => {
-    if (transientState.metalChoice > 0 && transientState.sizeChoice > 0 && transientState.styleChoice > 0) {
+export const saveOrder = async () => {
+    if (transientState.metalId > 0 && transientState.sizeId > 0 && transientState.styleId > 0) {
         // Create the options for fetch()
         const postOptions = {
             method: "POST",
@@ -28,11 +28,11 @@ export const saveSurveySubmission = async () => {
             body: JSON.stringify(transientState)
         }
         // Send the data to the API
-        const response = await fetch("http://localhost:8088/submissions", postOptions)
+        const response = await fetch("http://localhost:8088/orders", postOptions)
    
-   // Dispatch a custom event when the submission is complete
-    const newSubmissionEvent = new CustomEvent("newSubmissionCreated")
-    document.dispatchEvent(newSubmissionEvent)
+        // Dispatch a custom event when the submission is complete
+        const newOrderEvent = new CustomEvent("newOrderCreated")
+        document.dispatchEvent(newOrderEvent)
     }
     else { 
         window.alert(`Please choose one option in each category to submit order.`)
